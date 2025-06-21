@@ -4,6 +4,7 @@ export const SidebarContainer = styled(Paper)({
   width: 240,
   height: '100vh',
   boxShadow: 'none',
+  backgroundColor: '#EAE4D5',
 });
 
 export const MenuList = styled(Box)({

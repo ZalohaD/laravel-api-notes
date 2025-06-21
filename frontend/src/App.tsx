@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
-import AdminLayout from './layouts/admin/AdminLayout';
-import AdminMain from './pages/admin/AdminMain';
-import Users from './pages/admin/Users';
-import Notes from './pages/admin/Notes';
+import AdminLayout from './layouts/AdminLayout';
+import AdminMain from './pages/AdminMain';
+import Users from './pages/Users';
+import Notes from './pages/Notes';
 
 function App() {
   return (

@@ -1,10 +1,16 @@
 import { Box } from '@mui/material';
 import { Outlet } from 'react-router-dom';
-import Sidebar from '../../components/admin/Sidebar';
+import Sidebar from '../components/Sidebar';
 
 const AdminLayout = () => {
   return (
-    <Box sx={{ display: 'flex', minHeight: '100vh', flexDirection: 'row' }}>
+    <Box 
+      sx={{
+        display: 'flex',
+        minHeight: '100vh',
+        flexDirection: 'row',
+      }}
+    >
       <Sidebar />
       <Box
         component="main"
