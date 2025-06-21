@@ -48,20 +48,27 @@ const Sidebar = () => {
       <Box
         sx={{
           display: 'flex',
-          justifyItems: 'center',
           justifyContent: 'center',
-          mt: 1,
-          mx: 1,
+          alignItems: 'center',
+          px: 2,
           py: 2,
           cursor: 'pointer',
           borderRadius: 3,
+          mx: 2,
+          mt: 2,
+          transition: '0.3s',
+          '&:hover': {
+            backgroundColor: '#f4f0e5',
+          },
         }}
-        onClick={() => {navigate('/admin/')}}
+        onClick={() => navigate('/admin')}
       >
-        <Typography>Admin panel</Typography>
+        <Typography>
+          Admin Panel
+        </Typography>
       </Box>
 
-      <Divider orientation='horizontal' sx={{ width: '90%', borderBottomWidth: 1, borderRadius: 10, m: 'auto' }} />
+      <Divider sx={{ my: 2, mx: 'auto', width: '85%', borderBottomWidth: 1 }} />
 
       <MenuList>
         {menuItems.map(item => (
@@ -75,18 +82,14 @@ const Sidebar = () => {
         ))}
       </MenuList>
 
-      <Divider orientation='horizontal' sx={{ width: '90%', borderBottomWidth: 1, borderRadius: 10, m: 'auto' }} />
+      <Divider sx={{ my: 2, mx: 'auto', width: '85%', borderBottomWidth: 1 }} />
 
       <MenuList>
         <SidebarTab
           key="Logout"
           text="Logout"
-          icon={
-            <MenuIcon>
-              <LogoutIcon />
-            </MenuIcon>
-          }
-          path="/logout"
+          icon={<MenuIcon><LogoutIcon /></MenuIcon>}
+          path="/login"
           onClick={handleClick}
         />
       </MenuList>

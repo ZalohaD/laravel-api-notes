@@ -3,6 +3,7 @@ import AdminLayout from './layouts/AdminLayout';
 import AdminMain from './pages/AdminMain';
 import Users from './pages/Users';
 import Notes from './pages/Notes';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path='users' element={<Users />}/>
         <Route path='notes' element={<Notes />}/>
       </Route>
+      <Route path='/login' element={<Login />}/>
     </Routes>
   )
 }

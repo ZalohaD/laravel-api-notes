@@ -21,21 +21,22 @@ const SidebarTab = ({ text, icon, path, onClick }: SidebarTabProps) => {
         py: 1.5,
         borderRadius: 3,
         my: 1,
-        "&.Mui-selected": {
-          backgroundColor: "#d9d2c1",
+        transition: '0.3s ease',
+        '&.Mui-selected': {
+          backgroundColor: '#f4f0e5',
         },
-        "&.Mui-selected:hover": {
-          backgroundColor: "#B6B09F",
+        '&.Mui-selected:hover': {
+          backgroundColor: '#f4f0e5',
         },
-        ":hover": {
-          backgroundColor: "#B6B09F"
+        ':hover': {
+          backgroundColor: '#f4f0e5',
         },
-        ":active": {
-          backgroundColor: "#EAE4D5"
+        ':active': {
+          backgroundColor: '#ede6d7',
         },
       }}
     >
-      <ListItemIcon sx={{ minWidth: 36 }}>{icon}</ListItemIcon>
+      <ListItemIcon sx={{ minWidth: 36, color: '#7C5E10' }}>{icon}</ListItemIcon>
       <ListItemText primary={text} />
     </ListItemButton>
   );
