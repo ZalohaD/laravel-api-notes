@@ -29,4 +29,17 @@ class AuthApiController extends Controller
             'user' => $user,
         ], 201);
     }
+
+    public function login (Request $request)
+    {
+        $data = $request->validate([
+            'password' => 'required|string',
+            'phone' => 'required|string'
+        ]);
+
+        $result = $this->authService->loginUser($data['phone'], $data['password']);
+
+        return response()->json(['token' => $result['token']], 200);
+
+    }
 }

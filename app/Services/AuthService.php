@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\User;
 use App\Repositories\UserRepository;
+use Illuminate\Support\Facades\Hash;
 
 class AuthService
 {
@@ -14,6 +15,18 @@ class AuthService
     public function registerUser(array $data): User
     {
         return $this->userRepository->createUser($data);
+    }
+
+    public function loginUser(string $phone, string $password){
+        $user = $this->userRepository->findByPhone($phone);
+
+        if(!$user || !Hash::check($password, $user->password)){
+            return ['error' => 'Невірний пароль або телефон'];
+        }
+        if (!$user->two_factor_enabled) {
+            $token = $this->generateToken($user);
+            return ['token' => $token];
+        }
     }
 
     public function send2FACode(string $phone): ?string

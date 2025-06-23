@@ -14,6 +14,7 @@ class UserRepository {
         return User::create($data);
     }
 
+
     public function update(int $id, array $data)
     {
         $user = User::find($id);
