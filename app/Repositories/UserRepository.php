@@ -10,10 +10,14 @@ class UserRepository {
         return User::where('phone', $phone)->first();
     }
 
+    public function findByEmail(string $email)
+    {
+        return User::where('email', $email)->first();
+    }
+
     public function createUser (array $data){
         return User::create($data);
     }
-
 
     public function update(int $id, array $data)
     {
@@ -46,4 +50,9 @@ class UserRepository {
         return User::paginate();
     }
 
+
+    public function deactivate(int $id){
+        $user = User::find($id);
+        return $user->update(['is_active' => '0']);
+    }
 }

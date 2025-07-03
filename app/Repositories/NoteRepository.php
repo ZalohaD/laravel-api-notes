@@ -8,6 +8,8 @@ class NoteRepository {
     public function createNote(int $userId, array $data)
     {
         $data['user_id'] = $userId;
+        unset($data['deleted_at']);
+
         return Note::create($data);
     }
 
@@ -19,13 +21,17 @@ class NoteRepository {
     }
 
     public function delete (int $id){
-        return Note::detele($id);
+        return Note::destroy($id);
     }
 
     public function find (int $id){
         $note = Note::find($id);
         if (!$note) return null;
         return $note->delete();
+    }
+
+    public function findNote(int $id){
+        return Note::find($id);
     }
 
     public function getByUser (int $user_id){

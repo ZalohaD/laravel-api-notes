@@ -17,16 +17,25 @@ class AuthService
         return $this->userRepository->createUser($data);
     }
 
-    public function loginUser(string $phone, string $password){
-        $user = $this->userRepository->findByPhone($phone);
+    public function loginUser(string $email, string $password){
+        $user = $this->userRepository->findByEmail($email);
 
-        if(!$user || !Hash::check($password, $user->password)){
+        if (!$user || !Hash::check($password, $user->password)) {
             return ['error' => 'Невірний пароль або телефон'];
         }
+
         if (!$user->two_factor_enabled) {
             $token = $this->generateToken($user);
-            return ['token' => $token];
+            return [
+                'token' => $token,
+                'user_id' => $user->id,
+            ];
         }
+
+        return [
+            '2fa_required' => true,
+            'user_id' => $user->id
+        ];
     }
 
     public function send2FACode(string $phone): ?string

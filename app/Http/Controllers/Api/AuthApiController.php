@@ -39,7 +39,7 @@ class AuthApiController extends Controller
 
         $result = $this->authService->loginUser($data['phone'], $data['password']);
 
-        return response()->json(['token' => $result['token']], 200);
+        return response()->json(['token' => $result['token']]);
 
     }
 }

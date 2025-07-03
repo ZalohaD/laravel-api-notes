@@ -32,4 +32,8 @@ class UserService {
     public function getUserDetails(int $id){
         return $this->userRepository->find($id);
     }
+
+    public function deactivateUser(int $id){
+        return $this->userRepository->deactivate($id);
+    }
 }

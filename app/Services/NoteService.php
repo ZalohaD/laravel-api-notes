@@ -11,6 +11,9 @@ class NoteService{
        protected NoteRepository $noteRepository
     ){}
 
+    public function showAll(){
+        return $this->noteRepository->getAllNotes();
+    }
     public function createNote(User $user, array $data){
         return $this->noteRepository->createNote($user->id, $data);
     }
@@ -26,6 +29,10 @@ class NoteService{
             return null;
         }
         return $note;
+    }
+
+    public function findNote(int $nodeId){
+        return $this->noteRepository->findNote($nodeId);
     }
 
     public function updateNote (int $noteId, array $data){
